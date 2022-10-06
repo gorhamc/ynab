@@ -1,0 +1,2 @@
+[workspace]
+members = ["ynab_lib", "cli"]

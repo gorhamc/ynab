@@ -1,0 +1,17 @@
+[package]
+name = "cli"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+ynab_lib = { version="0.1.0", path = "../ynab_lib"}
+anyhow = "1.0.64"
+clap = { version = "3.2.20", features = ["derive"] }
+dotenv = "0.15.0"
+owo-colors = "3"
+reqwest = { version = "0.11", features = ["json"] }
+serde = {version = "1.0.144", features = ["derive"]}
+serde_json = "1.0.85"
+tokio = { version = "1", features = ["full"] }
