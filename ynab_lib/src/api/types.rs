@@ -226,3 +226,9 @@ pub enum RecurFrequency {
 pub struct Response<T> {
     pub data: T,
 }
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct Settings {
+    pub date_format: Option<DateFormat>,
+    pub currency_format: Option<CurrencyFormat>,
+}
