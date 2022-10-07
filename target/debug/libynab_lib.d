@@ -1,1 +1,0 @@
-/home/chris/github.com/ynab/target/debug/libynab_lib.rlib: /home/chris/github.com/ynab/ynab_lib/src/api/client.rs /home/chris/github.com/ynab/ynab_lib/src/api/mod.rs /home/chris/github.com/ynab/ynab_lib/src/api/types.rs /home/chris/github.com/ynab/ynab_lib/src/lib.rs

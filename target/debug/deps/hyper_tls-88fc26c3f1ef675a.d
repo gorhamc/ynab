@@ -1,9 +1,0 @@
-/home/chris/github.com/ynab/target/debug/deps/hyper_tls-88fc26c3f1ef675a.rmeta: /home/chris/.cargo/registry/src/github.com-1ecc6299db9ec823/hyper-tls-0.5.0/src/lib.rs /home/chris/.cargo/registry/src/github.com-1ecc6299db9ec823/hyper-tls-0.5.0/src/client.rs /home/chris/.cargo/registry/src/github.com-1ecc6299db9ec823/hyper-tls-0.5.0/src/stream.rs
-
-/home/chris/github.com/ynab/target/debug/deps/libhyper_tls-88fc26c3f1ef675a.rlib: /home/chris/.cargo/registry/src/github.com-1ecc6299db9ec823/hyper-tls-0.5.0/src/lib.rs /home/chris/.cargo/registry/src/github.com-1ecc6299db9ec823/hyper-tls-0.5.0/src/client.rs /home/chris/.cargo/registry/src/github.com-1ecc6299db9ec823/hyper-tls-0.5.0/src/stream.rs
-
-/home/chris/github.com/ynab/target/debug/deps/hyper_tls-88fc26c3f1ef675a.d: /home/chris/.cargo/registry/src/github.com-1ecc6299db9ec823/hyper-tls-0.5.0/src/lib.rs /home/chris/.cargo/registry/src/github.com-1ecc6299db9ec823/hyper-tls-0.5.0/src/client.rs /home/chris/.cargo/registry/src/github.com-1ecc6299db9ec823/hyper-tls-0.5.0/src/stream.rs
-
-/home/chris/.cargo/registry/src/github.com-1ecc6299db9ec823/hyper-tls-0.5.0/src/lib.rs:
-/home/chris/.cargo/registry/src/github.com-1ecc6299db9ec823/hyper-tls-0.5.0/src/client.rs:
-/home/chris/.cargo/registry/src/github.com-1ecc6299db9ec823/hyper-tls-0.5.0/src/stream.rs:
