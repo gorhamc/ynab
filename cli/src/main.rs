@@ -23,9 +23,7 @@ struct Args {
 async fn main() -> Result<()> {
     dotenv::dotenv().ok();
     let api_key = dotenv::var("API_KEY").unwrap();
-
-    //let budget_id = dotenv::var("BUDGET_ID");
-    let budget_id = String::from("4911692b-d1d0-4ed5-aa43-f80e598d509f");
+    let budget_id = dotenv::var("BUDGET_ID").unwrap();
 
     let args = Args::parse();
     println!("Hello {}!", args.budget.fg::<Yellow>().bg::<Red>());
