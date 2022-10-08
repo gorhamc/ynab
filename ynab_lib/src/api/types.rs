@@ -1,12 +1,9 @@
-//#[cfg(feature = "serde")]
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-//#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct Account {
     pub id: Option<String>,
     pub name: Option<String>,
-    //#[cfg_attr(feature = "serde", serde(rename = "type"))]
     #[serde(rename = "type")]
     pub account_type: Option<String>,
     pub on_budget: Option<bool>,
@@ -22,7 +19,6 @@ pub struct Account {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-//#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct Transaction {
     pub id: Option<String>,
     pub date: Option<String>,
@@ -46,7 +42,6 @@ pub struct Transaction {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-//#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct SubTransaction {
     pub id: Option<String>,
     pub scheduled_transaction_id: Option<String>,
@@ -59,7 +54,6 @@ pub struct SubTransaction {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-//#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct ScheduledTransaction {
     pub id: Option<String>,
     pub date_first: Option<String>,
@@ -80,7 +74,6 @@ pub struct ScheduledTransaction {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-//#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct Month {
     pub month: Option<String>,
     pub note: Option<String>,
@@ -94,7 +87,6 @@ pub struct Month {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-//#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct Category {
     pub id: Option<String>,
     pub category_group_id: Option<String>,
@@ -114,18 +106,16 @@ pub struct Category {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-//#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub enum GoalType {
-    #[cfg_attr(feature = "serde", serde(rename = "TB"))]
+    #[serde(rename = "TB")]
     TargetBalance,
-    #[cfg_attr(feature = "serde", serde(rename = "TBD"))]
+    #[serde(rename = "TBD")]
     TargetBalanceByDate,
-    #[cfg_attr(feature = "serde", serde(rename = "MF"))]
+    #[serde(rename = "MF")]
     MonthlyFunding,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-//#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct CategoryGroup {
     pub id: String,
     pub name: String,
@@ -135,7 +125,6 @@ pub struct CategoryGroup {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-//#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct Payee {
     pub id: String,
     pub name: String,
@@ -144,7 +133,6 @@ pub struct Payee {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-//#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct PayeeLocation {
     pub id: String,
     pub payee_id: String,
@@ -154,7 +142,6 @@ pub struct PayeeLocation {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
-//#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct CurrencyFormat {
     pub iso_code: String,
     pub example_format: String,
@@ -167,13 +154,11 @@ pub struct CurrencyFormat {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
-//#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct DateFormat {
     pub format: String,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-//#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct Budget {
     pub id: Option<String>,
     pub name: Option<String>,
@@ -196,14 +181,11 @@ pub struct Budget {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
-//#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct User {
     pub id: String,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-//#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
-//#[cfg_attr(feature = "serde", serde(rename_all = "camelCase"))]
 #[serde(rename_all = "camelCase")]
 pub enum RecurFrequency {
     Never,
@@ -222,7 +204,6 @@ pub enum RecurFrequency {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-//#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct Response<T> {
     pub data: T,
 }

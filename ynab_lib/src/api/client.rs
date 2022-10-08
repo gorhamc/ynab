@@ -1,24 +1,33 @@
-use crate::api::types::*;
+//use crate::types as yt;
+use crate::api::types::{
+    Account, Budget, Category, Month, Payee, PayeeLocation, Response, Settings, Transaction,
+};
 use anyhow::Result as AnyhowResult;
 use reqwest;
 use serde::{Deserialize, Serialize};
 use serde_json;
 use std::time::Duration;
+
 pub struct Client {
     api_key: String,
+    c: reqwest::Client,
 }
 
 impl Client {
     pub fn new(api_key: String) -> Client {
-        Client { api_key: api_key }
+        Client {
+            api_key: api_key,
+            c: reqwest::Client::new(),
+        }
     }
 
     pub async fn get_budgets(&self) -> AnyhowResult<Vec<Budget>> {
         let url = format!("https://api.youneedabudget.com/v1/budgets");
-        let client = reqwest::Client::new();
+        //let client = reqwest::Client::new();
         let token = format!("Bearer {}", &self.api_key);
 
-        let json = client
+        let json = self
+            .c
             .get(url)
             .header("Authorization", token)
             .timeout(Duration::from_secs(3))
@@ -41,7 +50,8 @@ impl Client {
         let client = reqwest::Client::new();
         let token = format!("Bearer {}", &self.api_key);
 
-        let json = client
+        let json = self
+            .c
             .get(url)
             .header("Authorization", token)
             .timeout(Duration::from_secs(3))
@@ -61,10 +71,10 @@ impl Client {
 
     pub async fn get_budget_settings(&self, budget_id: String) -> AnyhowResult<Settings> {
         let url = format!("https://api.youneedabudget.com/v1/budgets/{budget_id}/settings");
-        let client = reqwest::Client::new();
         let token = format!("Bearer {}", &self.api_key);
 
-        let json = client
+        let json = self
+            .c
             .get(url)
             .header("Authorization", token)
             .timeout(Duration::from_secs(3))
@@ -84,10 +94,10 @@ impl Client {
 
     pub async fn get_accounts(&self, budget_id: String) -> AnyhowResult<Vec<Account>> {
         let url = format!("https://api.youneedabudget.com/v1/{budget_id}/accounts");
-        let client = reqwest::Client::new();
         let token = format!("Bearer {}", &self.api_key);
 
-        let json = client
+        let json = self
+            .c
             .get(url)
             .header("Authorization", token)
             .timeout(Duration::from_secs(3))
@@ -111,10 +121,10 @@ impl Client {
         account_id: String,
     ) -> AnyhowResult<Account> {
         let url = format!("https://api.youneedabudget.com/v1/{budget_id}/accounts/{account_id}");
-        let client = reqwest::Client::new();
         let token = format!("Bearer {}", &self.api_key);
 
-        let json = client
+        let json = self
+            .c
             .get(url)
             .header("Authorization", token)
             .timeout(Duration::from_secs(3))
@@ -134,10 +144,10 @@ impl Client {
 
     pub async fn get_categories(&self, budget_id: String) -> AnyhowResult<Vec<Category>> {
         let url = format!("https://api.youneedabudget.com/v1/{budget_id}/categories");
-        let client = reqwest::Client::new();
         let token = format!("Bearer {}", &self.api_key);
 
-        let json = client
+        let json = self
+            .c
             .get(url)
             .header("Authorization", token)
             .timeout(Duration::from_secs(3))
@@ -161,10 +171,10 @@ impl Client {
         category_id: String,
     ) -> AnyhowResult<Category> {
         let url = format!("https://api.youneedabudget.com/v1/{budget_id}/categories/{category_id}");
-        let client = reqwest::Client::new();
         let token = format!("Bearer {}", &self.api_key);
 
-        let json = client
+        let json = self
+            .c
             .get(url)
             .header("Authorization", token)
             .timeout(Duration::from_secs(3))
@@ -191,10 +201,10 @@ impl Client {
         let url = format!(
             "https://api.youneedabudget.com/v1/{budget_id}/months/{month}/categories/{category_id}"
         );
-        let client = reqwest::Client::new();
         let token = format!("Bearer {}", &self.api_key);
 
-        let json = client
+        let json = self
+            .c
             .get(url)
             .header("Authorization", token)
             .timeout(Duration::from_secs(3))
@@ -214,10 +224,10 @@ impl Client {
 
     pub async fn get_payees(&self, budget_id: String) -> AnyhowResult<Vec<Payee>> {
         let url = format!("https://api.youneedabudget.com/v1/{budget_id}/payees");
-        let client = reqwest::Client::new();
         let token = format!("Bearer {}", &self.api_key);
 
-        let json = client
+        let json = self
+            .c
             .get(url)
             .header("Authorization", token)
             .timeout(Duration::from_secs(3))
@@ -237,10 +247,10 @@ impl Client {
 
     pub async fn get_payee(&self, budget_id: String, payee_id: String) -> AnyhowResult<Payee> {
         let url = format!("https://api.youneedabudget.com/v1/{budget_id}/payees/{payee_id}");
-        let client = reqwest::Client::new();
         let token = format!("Bearer {}", &self.api_key);
 
-        let json = client
+        let json = self
+            .c
             .get(url)
             .header("Authorization", token)
             .timeout(Duration::from_secs(3))
@@ -260,10 +270,10 @@ impl Client {
 
     pub async fn get_payee_locations(&self, budget_id: String) -> AnyhowResult<Vec<PayeeLocation>> {
         let url = format!("https://api.youneedabudget.com/v1/{budget_id}/payee_locations");
-        let client = reqwest::Client::new();
         let token = format!("Bearer {}", &self.api_key);
 
-        let json = client
+        let json = self
+            .c
             .get(url)
             .header("Authorization", token)
             .timeout(Duration::from_secs(3))
@@ -289,10 +299,10 @@ impl Client {
         let url = format!(
             "https://api.youneedabudget.com/v1/{budget_id}/payee_locations/{payee_location_id}"
         );
-        let client = reqwest::Client::new();
         let token = format!("Bearer {}", &self.api_key);
 
-        let json = client
+        let json = self
+            .c
             .get(url)
             .header("Authorization", token)
             .timeout(Duration::from_secs(3))
@@ -318,10 +328,10 @@ impl Client {
         let url = format!(
             "https://api.youneedabudget.com/v1/{budget_id}/payees/{payee_id}/payee_locations"
         );
-        let client = reqwest::Client::new();
         let token = format!("Bearer {}", &self.api_key);
 
-        let json = client
+        let json = self
+            .c
             .get(url)
             .header("Authorization", token)
             .timeout(Duration::from_secs(3))
@@ -341,10 +351,10 @@ impl Client {
 
     pub async fn get_months(&self, budget_id: String) -> AnyhowResult<Vec<Month>> {
         let url = format!("https://api.youneedabudget.com/v1/{budget_id}/months");
-        let client = reqwest::Client::new();
         let token = format!("Bearer {}", &self.api_key);
 
-        let json = client
+        let json = self
+            .c
             .get(url)
             .header("Authorization", token)
             .timeout(Duration::from_secs(3))
@@ -364,10 +374,10 @@ impl Client {
 
     pub async fn get_month(&self, budget_id: String, month: String) -> AnyhowResult<Month> {
         let url = format!("https://api.youneedabudget.com/v1/{budget_id}/months/{month}");
-        let client = reqwest::Client::new();
         let token = format!("Bearer {}", &self.api_key);
 
-        let json = client
+        let json = self
+            .c
             .get(url)
             .header("Authorization", token)
             .timeout(Duration::from_secs(3))
@@ -387,10 +397,10 @@ impl Client {
 
     pub async fn get_transactions(&self, budget_id: String) -> AnyhowResult<Vec<Transaction>> {
         let url = format!("https://api.youneedabudget.com/v1/{budget_id}/transactions");
-        let client = reqwest::Client::new();
         let token = format!("Bearer {}", &self.api_key);
 
-        let json = client
+        let json = self
+            .c
             .get(url)
             .header("Authorization", token)
             .timeout(Duration::from_secs(3))
@@ -415,10 +425,10 @@ impl Client {
     ) -> AnyhowResult<Transaction> {
         let url =
             format!("https://api.youneedabudget.com/v1/{budget_id}/transactions/{transaction_id}");
-        let client = reqwest::Client::new();
         let token = format!("Bearer {}", &self.api_key);
 
-        let json = client
+        let json = self
+            .c
             .get(url)
             .header("Authorization", token)
             .timeout(Duration::from_secs(3))
@@ -444,10 +454,10 @@ impl Client {
         let url = format!(
             "https://api.youneedabudget.com/v1/{budget_id}/accounts/{account_id}/transactions"
         );
-        let client = reqwest::Client::new();
         let token = format!("Bearer {}", &self.api_key);
 
-        let json = client
+        let json = self
+            .c
             .get(url)
             .header("Authorization", token)
             .timeout(Duration::from_secs(3))
@@ -473,10 +483,10 @@ impl Client {
         let url = format!(
             "https://api.youneedabudget.com/v1/{budget_id}/categories/{category_id}/transactions"
         );
-        let client = reqwest::Client::new();
         let token = format!("Bearer {}", &self.api_key);
 
-        let json = client
+        let json = self
+            .c
             .get(url)
             .header("Authorization", token)
             .timeout(Duration::from_secs(3))
@@ -501,10 +511,10 @@ impl Client {
     ) -> AnyhowResult<Vec<Transaction>> {
         let url =
             format!("https://api.youneedabudget.com/v1/{budget_id}/payees/{payee_id}/transactions");
-        let client = reqwest::Client::new();
         let token = format!("Bearer {}", &self.api_key);
 
-        let json = client
+        let json = self
+            .c
             .get(url)
             .header("Authorization", token)
             .timeout(Duration::from_secs(3))
