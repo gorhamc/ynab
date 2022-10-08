@@ -1,3 +1,7 @@
+# What is YNAB?
+
+You Need A Budget ([YNAB](https://www.youneedabudget.com/)) is a web based implementation of envelope budgeting, or sometimes called zero-base budgeting.
+
 # What is this?
 
 This repo is a Rust implementation of a ynab client. The goal of this project is to make it simple to interact with the ynab api's.
