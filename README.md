@@ -18,4 +18,4 @@ PR's are welcome from anyone.
 
 Before using ynab_lib, you will need to first obtain a personal access token from your ynab account. Follow the steps [here](https://api.youneedabudget.com/#personal-access-tokens). Also note that ynab does rate limit requests, defined [here](https://api.youneedabudget.com/#rate-limiting).
 
-Right now all GET methods are implemented on the Client type. PUT and POST methods coming soon, once the GET methods are better tested.
+Right now all GET methods are implemented on the Client type.
