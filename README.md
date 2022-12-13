@@ -10,7 +10,7 @@ ynab_lib defines structs that represent the JSON body of a YNAB API response and
 
 cli for now is simply an easy way for me to execute and test code. I have plans for it to be a lot more valuable in the future but for now it doesn't really do anything.
 
-This is a small project primarily to help me learn Rust. I'm developing this fully 'in the open' so I can solicit more experienced Rustacean friends for feedback and tips to aid my learning.
+This is a small project primarily to help me learn Rust. 
 
 PR's are welcome from anyone.
 
